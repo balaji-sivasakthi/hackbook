@@ -4,7 +4,7 @@ import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import LinkedCameraIcon from "@mui/icons-material/LinkedCamera";
 import PolicyIcon from "@mui/icons-material/Policy";
 import { SvgIcon } from "@mui/material";
-
+import SettingsIcon from '@mui/icons-material/Settings';
 export const items = [
   {
     title: "Orgin Tracker",
@@ -56,6 +56,16 @@ export const items = [
     icon: (
       <SvgIcon
         component={LinkedCameraIcon}
+        sx={{ color: "#A3AED0" }}
+        inheritViewBox
+      />
+    ),
+  },{
+    title: "Setting",
+    to: "/setting",
+    icon: (
+      <SvgIcon
+        component={SettingsIcon}
         sx={{ color: "#A3AED0" }}
         inheritViewBox
       />

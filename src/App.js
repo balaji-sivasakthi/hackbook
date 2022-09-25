@@ -11,6 +11,7 @@ import EmailTracker from "./views/app/emailtracker";
 import CCTVSurvilance from "./views/app/cctv";
 import PortScan from "./views/app/portscan";
 import Info from "./views/app/cctv/info";
+import Setting from "./views/app/setting";
 function App() {
   return (
     <BrowserRouter>
@@ -24,6 +25,7 @@ function App() {
         <Route path="cctv" element={<CCTVSurvilance />} />
         <Route path="portscan" element={<PortScan />} />
         <Route path="cctv/:id" element={<Info />} />
+        <Route path="setting" element={<Setting/>} />
       </Routes>
     </BrowserRouter>
   );

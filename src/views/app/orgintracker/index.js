@@ -29,7 +29,7 @@ function OrginTracker() {
     setloading(true);
     axios
       .post(`${process.env.REACT_APP_BASE_URL}`, {
-        apiKey: "at_tp5CIogkK2wC0vjwj7nCjfcodUk5m",
+        apiKey: process.env.REACT_APP_API_KEY,
         domainName: search,
         mode: "purchase",
       })

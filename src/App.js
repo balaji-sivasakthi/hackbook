@@ -15,7 +15,7 @@ import Setting from './views/app/setting';
 import FaceDetect from './views/app/FaceDetect';
 import CriminalRecords from './views/app/CriminalRecords';
 import Dashboard from './views/app/Dashboard';
-import Tracker from './views/app/Tracker';
+import EmailOSLINT from './views/app/EmailOSLINT';
 function App() {
   return (
     <BrowserRouter>
@@ -31,7 +31,7 @@ function App() {
         <Route path='cctv/:id' element={<Info />} />
         <Route path='setting' element={<Setting />} />
         <Route path='/records' element={<CriminalRecords />} />
-        <Route path='/tracker' element={<Tracker />} />
+        <Route path='/emailoslint' element={<EmailOSLINT />} />
       </Routes>
     </BrowserRouter>
   );

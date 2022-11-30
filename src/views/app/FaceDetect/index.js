@@ -13,13 +13,10 @@ import CriminalPic from '../../../assets/Criminal.png';
 import Form from './Form';
 
 function FaceDetect() {
-
   return (
     <Layout>
       <Grid container p={3} md={12} sx={{ backgroundColor: '#fff' }}>
-        <Grid item md={4} mr={'20px'} alignItems={'center'}>
-          
-        </Grid>
+        <Grid item md={4} mr={'20px'} alignItems={'center'}></Grid>
         <Grid
           md={5}
           sx={{
@@ -36,10 +33,8 @@ function FaceDetect() {
               width: '100%',
             }}
           >
-            <Button  variant="contained">
-              Choose a picture
-            </Button>
-            <Button sx={{marginLeft:"10px"}}  variant="contained">
+            <Button variant='contained'>Choose a picture</Button>
+            <Button sx={{ marginLeft: '10px' }} variant='contained'>
               Capture
             </Button>
           </Grid>
@@ -48,10 +43,7 @@ function FaceDetect() {
               width: '100%',
             }}
           >
-           
-            <Button  variant="contained">
-              Find
-            </Button>
+            <Button title={'Find'} color={'#fff'} background={'#FC6C6B'} />
           </Grid>
         </Grid>
       </Grid>

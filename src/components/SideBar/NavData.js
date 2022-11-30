@@ -52,17 +52,7 @@ export const items = [
   //     />
   //   ),
   // },
-  {
-    title: 'Tracker',
-    to: '/tracker',
-    icon: (
-      <SvgIcon
-        component={CompassCalibrationIcon}
-        inheritViewBox
-        sx={{ color: '#A3AED0' }}
-      />
-    ),
-  },
+
   {
     title: 'Dashboard',
     to: '/',
@@ -89,6 +79,17 @@ export const items = [
         component={LinkedCameraIcon}
         sx={{ color: '#A3AED0' }}
         inheritViewBox
+      />
+    ),
+  },
+  {
+    title: 'Email OSLINT',
+    to: '/emailoslint',
+    icon: (
+      <SvgIcon
+        component={CompassCalibrationIcon}
+        inheritViewBox
+        sx={{ color: '#A3AED0' }}
       />
     ),
   },

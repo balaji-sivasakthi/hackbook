@@ -22,7 +22,7 @@ import { MagnifyingGlass } from 'react-loader-spinner';
 import Header from '../../../components/common/Header';
 import Form from './Form';
 
-function Tracker() {
+function EmailOSLINT() {
   const [result, setresult] = useState(null);
   const [search, setsearch] = useState('');
   const [loading, setloading] = useState(false);
@@ -55,7 +55,7 @@ function Tracker() {
     <Layout>
       <ToastContainer />
       <Card>
-        <Header HeaderName={'Tracker'} />
+        <Header HeaderName={'Email OSINT'} />
 
         <CardMedia>
           <Grid container p={1} pb={2} justifyContent='space-between'>
@@ -125,4 +125,4 @@ function Tracker() {
   );
 }
 
-export default Tracker;
+export default EmailOSLINT;

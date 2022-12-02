@@ -16,12 +16,14 @@ function Form() {
 
       const options = {
         method: 'GET',
-        url: `https://api.seon.io/SeonRestService/email-api/v2.2/${values.username}`,
+        url: `https://api.seon.io/SeonRestService/email-api/v2.2/smartiwin241323@gmail.com`,
         headers: {
           'X-API-KEY': '5986c31e-4f3a-4b6d-a1ed-8f7c7b0db094',
           'content-type': 'application/json',
+          'Cache-Control': 'no-cache',
         },
       };
+
       axios
         .request(options)
         .then(function (response) {

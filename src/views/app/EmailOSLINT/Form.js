@@ -13,21 +13,17 @@ function Form() {
     },
     onSubmit: (values) => {
       console.log('Submited', values);
-      const encodedParams = new URLSearchParams();
-      encodedParams.append('username', values.username);
-      encodedParams.append('target_count', '10');
 
       const options = {
-        method: 'POST',
-        url: 'https://social-scanner.p.rapidapi.com/social-scan/',
+        method: 'GET',
+        url: `https://api.seon.io/SeonRestService/email-api/v2.2/smartiwin241323@gmail.com`,
         headers: {
-          'content-type': 'application/x-www-form-urlencoded',
-          'X-RapidAPI-Key':
-            'caa41bd53cmshebae451f84cd896p1d671ejsn9a7180472c3a',
-          'X-RapidAPI-Host': 'social-scanner.p.rapidapi.com',
+          'X-API-KEY': '5986c31e-4f3a-4b6d-a1ed-8f7c7b0db094',
+          'content-type': 'application/json',
+          'Cache-Control': 'no-cache',
         },
-        data: encodedParams,
       };
+
       axios
         .request(options)
         .then(function (response) {

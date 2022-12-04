@@ -8,14 +8,14 @@ import './App.css';
 import OrginTracker from './views/app/orgintracker';
 import DNSLookup from './views/app/dnslookup';
 import EmailTracker from './views/app/emailtracker';
-import CCTVSurvilance from './views/app/FaceDetect';
 import PortScan from './views/app/portscan';
-import Info from './views/app/FaceDetect/info';
+import Info from './views/app/facedetect/info';
 import Setting from './views/app/setting';
-import FaceDetect from './views/app/FaceDetect';
-import CriminalRecords from './views/app/CriminalRecords';
+import FaceDetect from './views/app/facedetect';
+import CriminalRecords from './views/app/criminalrecords';
+import CriminalAdd from './views/app/criminalrecords/add';
 import Dashboard from './views/app/Dashboard';
-import EmailOSLINT from './views/app/EmailOSLINT';
+import EmailOSLINT from './views/app/emailoslint';
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +31,7 @@ function App() {
         <Route path='cctv/:id' element={<Info />} />
         <Route path='setting' element={<Setting />} />
         <Route path='/records' element={<CriminalRecords />} />
+        <Route path='/records/add' element={<CriminalAdd/>} />
         <Route path='/emailoslint' element={<EmailOSLINT />} />
       </Routes>
     </BrowserRouter>

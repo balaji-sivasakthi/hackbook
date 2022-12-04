@@ -1,29 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../../../layouts/index';
 import Tabulation from '../../../components/Table';
-
+import fb from '../../../firebase';
+import {getFirestore,getDocs,collection} from 'firebase/firestore'
+import { async } from '@firebase/util';
 function CriminalRecords() {
-  const DATA = [
+
+  const [data, setdata] = useState([
     {
-      id: '322424',
-      name: 'Maniyu',
-      mobile: '998984999',
-    },
-    {
-      id: '322424',
-      name: 'Henin',
-      mobile: '998984999',
-    },
-    {
-      id: '45545',
-      name: 'Gratus Richard',
-      mobile: '998984999',
-    },
-  ];
+      id:"",
+      name:"",
+      location:""
+    }
+  ])
+
+  const db = getFirestore(fb);
+
+  useEffect(() => {
+
+    const getCriminals = async ()=>{
+        try {
+          const d = []
+          const data =await getDocs(collection(db,"criminals"))
+          data.forEach(e=>{
+            d.push({id:e.id,...e.data()})
+          })
+
+        setdata(d)
+          
+        } catch (error) {
+          console.log("Error",error);
+          
+        }
+
+    }
+    getCriminals()
+    // setdata(data)
+  },[data])
+  
+
 
   return (
     <Layout>
-      <Tabulation data={DATA} />;
+      <Tabulation data={data} />;
     </Layout>
   );
 }

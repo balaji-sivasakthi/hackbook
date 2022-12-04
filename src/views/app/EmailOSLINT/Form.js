@@ -5,6 +5,7 @@ import MuiInput from '../../../components/MuiInput';
 import { useFormik } from 'formik';
 import axios from 'axios';
 
+
 function Form() {
   const [data, setdata] = useState([]);
   const formik = useFormik({
@@ -15,19 +16,17 @@ function Form() {
       console.log('Submited', values);
 
       const options = {
-        method: 'GET',
-        url: `https://api.seon.io/SeonRestService/email-api/v2.2/smartiwin241323@gmail.com`,
-        headers: {
-          'X-API-KEY': '5986c31e-4f3a-4b6d-a1ed-8f7c7b0db094',
-          'content-type': 'application/json',
-          'Cache-Control': 'no-cache',
-        },
+        method: 'POST',
+        url: 'http://127.0.0.1:5000/api/checkemail',
+        data:{
+          email:values.username
+        }
       };
 
       axios
         .request(options)
         .then(function (response) {
-          console.log(response.data);
+          console.log(response);
           alert(JSON.stringify(response.data, null, 2));
           setdata(response.data.detected);
         })

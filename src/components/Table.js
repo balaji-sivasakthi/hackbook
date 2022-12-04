@@ -23,7 +23,7 @@ function Tabulation({ data }) {
           <TableRow>
             <TableCell>Criminal Id</TableCell>
             <TableCell>Name</TableCell>
-            <TableCell>Mobile</TableCell>
+            <TableCell>Location</TableCell>
             {/* <TableCell>Network Name</TableCell>
             <TableCell>Status</TableCell>
             <TableCell>Date</TableCell> */}
@@ -39,7 +39,7 @@ function Tabulation({ data }) {
                   {data.name}
                   {/* {data.secondName} */}
                 </TableCell>
-                <TableCell>{data.mobile}</TableCell>
+                <TableCell>{data.location}</TableCell>
                 {/* <TableCell>{data.networkName}</TableCell> */}
                 {/* <TableCell>
                       <Batch status={data.status} />

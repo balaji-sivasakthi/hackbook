@@ -13,28 +13,20 @@ import Webcam from 'react-webcam';
 import CriminalPic from '../../../assets/Criminal.png';
 
 function FaceDetect() {
-
- 
   const webcamRef = React.useRef(null);
   const canvasRef = React.useRef(null);
-
-
 
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
     console.log(imageSrc);
-    
   }, [webcamRef]);
 
-  useEffect(() => {
-   
-  }, []);
+  useEffect(() => {}, []);
   return (
     <Layout>
       <Grid container p={3} md={12} sx={{ backgroundColor: '#fff' }}>
         <Grid item md={4} mr={'20px'} alignItems={'center'}>
           <Webcam
-
             ref={webcamRef}
             muted={true}
             style={{
@@ -45,7 +37,6 @@ function FaceDetect() {
               backgroundColor: '#000',
               borderRadius: '10px',
             }}
-
           />
         </Grid>
         <Grid
@@ -66,19 +57,16 @@ function FaceDetect() {
             }}
           >
             <Button
-              sx={{ marginTop: '8px', width: "100%" }}
+              sx={{ marginTop: '8px', width: '100%' }}
               type='submit'
               variant='contained'
-              component="label"
+              component='label'
             >
               Upload File
-              <input
-                type="file"
-                hidden
-              />
+              <input type='file' hidden />
             </Button>
             <Button
-              sx={{ marginTop: '8px', width: "100%" }}
+              sx={{ marginTop: '8px', width: '100%' }}
               type='submit'
               variant='contained'
             >
@@ -91,10 +79,10 @@ function FaceDetect() {
             }}
           >
             <Button
-              sx={{ marginTop: '8px', width: "50%" }} 
+              sx={{ marginTop: '8px', width: '50%' }}
               type='submit'
               variant='contained'
-              onClick={()=>capture()}
+              onClick={() => capture()}
             >
               capture
             </Button>

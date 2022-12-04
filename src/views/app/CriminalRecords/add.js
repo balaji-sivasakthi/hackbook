@@ -1,19 +1,21 @@
 import { Button, Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
 import Layout from '../../../layouts/index';
-import MuiInput from '../../../components/MuiInput';
+
 // import * as yup from "yup";
-import { Formik } from 'formik';
+import { Formik, useFormik } from 'formik';
 
 function Add() {
-    const initialValues = {
-        name: '',
-        location: '',
-    };
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            location: '',
+        },
+        onSubmit: (values) => {
+            alert(JSON.stringify(values, null, 2));
+        },
+    });
 
-    const onSubmit = (values) => {
-        console.log('Edited', values);
-    };
 
     return (
         <Layout>
@@ -25,11 +27,37 @@ function Add() {
                 sx={{ backgroundColor: '#ffff' }}
                 borderRadius={'10px'}
             >
-               
-               <Grid item>
-               
-               </Grid>
-              
+
+                <Grid item>
+                    <form onSubmit={formik.handleSubmit}>
+                        <TextField
+                            sx={{marginBottom:"10px"}}
+                            fullWidth
+                            id="name"
+                            name="name"
+                            label="Name"
+                            value={formik.values.name}
+                            onChange={formik.handleChange}
+                            error={formik.touched.name && Boolean(formik.errors.name)}
+                            helperText={formik.touched.name && formik.errors.name}
+                        />
+                        <TextField
+sx={{marginBottom:"10px"}}
+                            fullWidth
+                            id="location"
+                            name="location"
+                            label="Location"
+                            value={formik.values.location}
+                            onChange={formik.handleChange}
+                            error={formik.touched.location && Boolean(formik.errors.location)}
+                            helperText={formik.touched.location && formik.errors.location}
+                        />
+                        <Button color="primary" variant="contained" fullWidth type="submit">
+                            Submit
+                        </Button>
+                    </form>
+                </Grid>
+
             </Grid>
         </Layout>
     );

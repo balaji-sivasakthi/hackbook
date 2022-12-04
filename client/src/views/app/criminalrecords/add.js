@@ -3,10 +3,16 @@ import React, { useState } from 'react';
 import Layout from '../../../layouts/index';
 
 // import * as yup from "yup";
-import { Formik, useFormik } from 'formik';
+import { Formik, useFormik,useFormikContext} from 'formik';
 import Webcam from 'react-webcam';
+import {setDoc,collection} from 'firebase/firestore'
+import uuid from 'react-uuid';
+import { async } from '@firebase/util';
+import axios from 'axios'
 
 function Add() {
+  const formikProps = useFormikContext()
+
   const [CaptureImg, setCaptureImg] = useState('');
   const webcamRef = React.useRef(null);
   const canvasRef = React.useRef(null);
@@ -21,14 +27,30 @@ function Add() {
     initialValues: {
       name: '',
       location: '',
+      file:null
     },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit:async (values) => {
+      const formData = new FormData();
+      formData.append("file", values.file);
+      formData.append("name",values.name)
+      formData.append("location",values.location)
+
+      axios({
+        method: "post",
+        url: "",
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      }).then(result=>{
+        console.log(result);
+      });
+
     },
   });
 
   const handleImageChange = (e) => {
-    if (e.target.files.length) {
+    if (e.target.files.length ) {
+      console.log(e);
+      formik.handleChange(e);
       setCaptureImg(URL.createObjectURL(e.target.files[0]));
     }
   };
@@ -75,7 +97,7 @@ function Add() {
               component='label'
             >
               Upload File
-              <input type='file' onChange={handleImageChange} hidden />
+              <input type='file' name="file"  value={formik.values.file} onChange={handleImageChange} hidden />
             </Button>
             <Button
               sx={{ marginTop: '8px', width: '100%' }}

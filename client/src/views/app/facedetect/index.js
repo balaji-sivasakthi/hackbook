@@ -11,17 +11,36 @@ import React, { useEffect, useState } from 'react';
 import Layout from '../../../layouts/index';
 import Webcam from 'react-webcam';
 import CriminalPic from '../../../assets/Criminal.png';
+import Info from './info';
+import { async } from '@firebase/util';
+
+import axios from 'axios'
 
 function FaceDetect() {
   const webcamRef = React.useRef(null);
   const canvasRef = React.useRef(null);
+
+  const [result, setResult] = useState([])
 
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
     console.log(imageSrc);
   }, [webcamRef]);
 
-  useEffect(() => {}, []);
+
+  useEffect(() => { 
+
+    const ComparedResult = async() => {
+      const response = await axios.get("").then((res) => {
+         res.filter((e) => e.confidence === 0);
+       })
+     console.log("ComparedResult",response);
+     setResult(response);
+     }
+  }, []);
+
+
+
   return (
     <Layout>
       <Grid container p={3} md={12} sx={{ backgroundColor: '#fff' }}>
@@ -71,6 +90,13 @@ function FaceDetect() {
               variant='contained'
             >
               Full Screen
+            </Button>
+            <Button
+              sx={{ marginTop: '8px', width: '100%' }}
+              
+              variant='contained'
+            >
+              Find
             </Button>
           </Grid>
           <Grid
@@ -209,6 +235,7 @@ function FaceDetect() {
           </Grid>
         </Grid>
       </Grid>
+      <Info />
     </Layout>
   );
 }
